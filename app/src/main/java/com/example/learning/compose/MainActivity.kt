@@ -11,13 +11,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.learning.compose.demos.asyncscroll.AsyncScrollDemoScreen
+import com.example.learning.compose.demos.tab.TabDemoScreen
 import com.example.learning.compose.ui.theme.LearningComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,11 +29,8 @@ class MainActivity : ComponentActivity() {
     enum class Screen {
         MainMenu,
         AsyncScrollDemo,
+        TabDemo,
     }
-
-    // SwiftUIでいう
-    // @State private var currentScreen = Screen.MainMenu
-    private val currentScreen = mutableStateOf(Screen.MainMenu)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +43,11 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun MainScreen() {
 
+        var currentScreen by remember { mutableStateOf(Screen.MainMenu) }
+
         val naviController = rememberNavController()
         naviController.addOnDestinationChangedListener() { _, destination, _ ->
-            currentScreen.value = Screen.valueOf(destination.route ?: Screen.MainMenu.name)
+            currentScreen = Screen.valueOf(destination.route ?: Screen.MainMenu.name)
         }
 
         LearningComposeTheme {
@@ -54,7 +57,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 Column {
 
-                    if(currentScreen.value != Screen.MainMenu)
+                    if(currentScreen != Screen.MainMenu)
                     {
                         BackNavigation(naviController = naviController)
                     }
@@ -64,10 +67,15 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screen.MainMenu.name
                     ) {
                         composable(Screen.MainMenu.name) {
-                            ContentList(naviController = naviController)
+                            ContentList(naviController = naviController){
+                                currentScreen = it
+                            }
                         }
                         composable(Screen.AsyncScrollDemo.name) {
                             AsyncScrollDemoScreen().Screen()
+                        }
+                        composable(Screen.TabDemo.name) {
+                            TabDemoScreen().Screen()
                         }
                     }
                 }
@@ -76,22 +84,28 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun ContentList(naviController: NavHostController) {
+    private fun ContentList(
+        naviController: NavHostController,
+        onCurrentScreenChanged: (Screen) -> Unit
+    ) {
 
         Column {
-            DemoLinkButton(naviController, Screen.AsyncScrollDemo)
+            DemoLinkButton(naviController, Screen.AsyncScrollDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.TabDemo, onCurrentScreenChanged)
         }
     }
 
     @Composable
     private fun DemoLinkButton(
         naviController: NavHostController,
-        nextScreen: Screen)
+        nextScreen: Screen,
+        onCurrentScreenChanged: (Screen) -> Unit
+    )
     {
         Button(
             modifier = Modifier.fillMaxWidth(),
             onClick = {
-                currentScreen.value = nextScreen
+                onCurrentScreenChanged(nextScreen)
                 naviController.navigate(nextScreen.name)
             }) {
             Text(

@@ -9,53 +9,52 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.example.learning.compose.NaviScreen
 
 class AsyncScrollDemoScreen : NaviScreen {
-    // SwiftUIでいう
-    // @State private var profiles = [ProfileModel]
-    private var profiles = mutableStateListOf<ProfileModel>()
 
     @Composable
     override fun Screen() {
+
+        val profiles = remember { mutableStateListOf<ProfileModel>() }
+
         Column {
             Row {
-                AddButton()
+                AddButton {
+                    val currentListSize = profiles.size
+                    for (i in 1..10) {
+                        val id = currentListSize + i
+                        profiles += ProfileModel(
+                            name = "Name $id",
+                            description = "Description of $id",
+                            webUrl = "http://$id",
+                            thumbnailPath = "https://picsum.photos/300")
+                    }
+                }
                 ClearButton()
             }
-            ProfileListComposable()
+            ProfileListComposable(profiles)
         }
     }
 
     @Composable
-    private fun AddButton() {
-        Button(onClick = {
-            val currentListSize = profiles.size
-            for (i in 1..10) {
-                val id = currentListSize + i
-                profiles += ProfileModel(
-                    name = "Name $id",
-                    description = "Description of $id",
-                    webUrl = "http://$id",
-                    thumbnailPath = "https://picsum.photos/300")
-            }
-        }) {
+    private fun AddButton(onCLicked: ()->Unit = {}) {
+        Button(onClick = onCLicked) {
             Text(text = "Add")
         }
     }
 
     @Composable
-    private fun ClearButton() {
-        Button(onClick = {
-            profiles.clear()
-        }) {
+    private fun ClearButton(onCLicked: ()->Unit = {}) {
+        Button(onClick = onCLicked) {
             Text(text = "Clear")
         }
     }
 
     @Composable
-    private fun ProfileListComposable() {
+    private fun ProfileListComposable(profiles: MutableList<ProfileModel>) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
