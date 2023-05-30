@@ -1,0 +1,13 @@
+*                   text=auto
+
+*.bat               text encoding=sjis eol=crlf
+*.sh                text eol=lf
+
+*.jar               binary
+*.aar               binary
+
+*.webp              binary
+*.png               binary
+*.jpg               binary
+*.jpeg              binary
+*.gif               binary
