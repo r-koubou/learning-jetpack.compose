@@ -6,10 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,7 +22,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import compose.demos.asyncscroll.AsyncScrollDemoScreen
 import compose.demos.tab.TabDemoScreen
-import compose.ui.theme.LearningComposeTheme
+import compose.demos.textfield.TextFieldDemoScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -30,6 +30,7 @@ class MainActivity : ComponentActivity() {
         MainMenu,
         AsyncScrollDemo,
         TabDemo,
+        TextFieldDemo,
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,33 +51,33 @@ class MainActivity : ComponentActivity() {
             currentScreen = Screen.valueOf(destination.route ?: Screen.MainMenu.name)
         }
 
-        LearningComposeTheme {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                Column {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            Column {
 
-                    if(currentScreen != Screen.MainMenu)
-                    {
-                        BackNavigation(naviController = naviController)
+                if(currentScreen != Screen.MainMenu)
+                {
+                    BackNavigation(naviController = naviController)
+                }
+
+                NavHost(
+                    navController = naviController,
+                    startDestination = Screen.MainMenu.name
+                ) {
+                    composable(Screen.MainMenu.name) {
+                        ContentList(naviController = naviController){
+                            currentScreen = it
+                        }
                     }
-
-                    NavHost(
-                        navController = naviController,
-                        startDestination = Screen.MainMenu.name
-                    ) {
-                        composable(Screen.MainMenu.name) {
-                            ContentList(naviController = naviController){
-                                currentScreen = it
-                            }
-                        }
-                        composable(Screen.AsyncScrollDemo.name) {
-                            AsyncScrollDemoScreen().Screen()
-                        }
-                        composable(Screen.TabDemo.name) {
-                            TabDemoScreen().Screen()
-                        }
+                    composable(Screen.AsyncScrollDemo.name) {
+                        AsyncScrollDemoScreen().Screen()
+                    }
+                    composable(Screen.TabDemo.name) {
+                        TabDemoScreen().Screen()
+                    }
+                    composable(Screen.TextFieldDemo.name) {
+                        TextFieldDemoScreen().Screen()
                     }
                 }
             }
@@ -92,6 +93,7 @@ class MainActivity : ComponentActivity() {
         Column {
             DemoLinkButton(naviController, Screen.AsyncScrollDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.TabDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.TextFieldDemo, onCurrentScreenChanged)
         }
     }
 
