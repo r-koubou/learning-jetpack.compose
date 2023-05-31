@@ -1,4 +1,4 @@
-package com.example.learning.compose
+package compose
 
 import androidx.compose.runtime.Composable
 

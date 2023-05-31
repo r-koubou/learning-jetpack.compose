@@ -1,4 +1,4 @@
-package com.example.learning.compose.demos.asyncscroll
+package compose.demos.asyncscroll
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
-import com.example.learning.compose.ui.theme.Mint
+import compose.ui.theme.Mint
 
 @Composable
 internal fun ProfileComposable(profile: ProfileModel)

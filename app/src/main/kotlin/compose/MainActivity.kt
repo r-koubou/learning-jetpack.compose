@@ -1,4 +1,4 @@
-package com.example.learning.compose
+package compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -20,9 +20,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.learning.compose.demos.asyncscroll.AsyncScrollDemoScreen
-import com.example.learning.compose.demos.tab.TabDemoScreen
-import com.example.learning.compose.ui.theme.LearningComposeTheme
+import compose.demos.asyncscroll.AsyncScrollDemoScreen
+import compose.demos.tab.TabDemoScreen
+import compose.ui.theme.LearningComposeTheme
 
 class MainActivity : ComponentActivity() {
 
