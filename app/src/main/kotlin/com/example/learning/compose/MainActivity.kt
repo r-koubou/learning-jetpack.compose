@@ -1,8 +1,9 @@
-package compose
+package com.example.learning.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,9 +21,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import compose.demos.asyncscroll.AsyncScrollDemoScreen
-import compose.demos.tab.TabDemoScreen
-import compose.demos.textfield.TextFieldDemoScreen
+import com.example.learning.compose.demos.asyncscroll.AsyncScrollDemoScreen
+import com.example.learning.compose.demos.tab.TabDemoScreen
+import com.example.learning.compose.demos.textfield.TextFieldDemoScreen
+import com.example.learning.compose.demos.valueselector.ValueSelectorDemoScreen
+import com.example.learning.compose.ui.theme.LearningComposeTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -31,6 +34,7 @@ class MainActivity : ComponentActivity() {
         AsyncScrollDemo,
         TabDemo,
         TextFieldDemo,
+        ValueSelectorDemo,
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,33 +55,40 @@ class MainActivity : ComponentActivity() {
             currentScreen = Screen.valueOf(destination.route ?: Screen.MainMenu.name)
         }
 
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-        ) {
-            Column {
+        LearningComposeTheme {
 
-                if(currentScreen != Screen.MainMenu)
-                {
-                    BackNavigation(naviController = naviController)
-                }
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colors.background)
+            ) {
+                Column {
 
-                NavHost(
-                    navController = naviController,
-                    startDestination = Screen.MainMenu.name
-                ) {
-                    composable(Screen.MainMenu.name) {
-                        ContentList(naviController = naviController){
-                            currentScreen = it
+                    if (currentScreen != Screen.MainMenu) {
+                        BackNavigation(naviController = naviController)
+                    }
+
+                    NavHost(
+                        navController = naviController,
+                        startDestination = Screen.MainMenu.name
+                    ) {
+                        composable(Screen.MainMenu.name) {
+                            ContentList(naviController = naviController) {
+                                currentScreen = it
+                            }
                         }
-                    }
-                    composable(Screen.AsyncScrollDemo.name) {
-                        AsyncScrollDemoScreen().Screen()
-                    }
-                    composable(Screen.TabDemo.name) {
-                        TabDemoScreen().Screen()
-                    }
-                    composable(Screen.TextFieldDemo.name) {
-                        TextFieldDemoScreen().Screen()
+                        composable(Screen.AsyncScrollDemo.name) {
+                            AsyncScrollDemoScreen().Screen()
+                        }
+                        composable(Screen.TabDemo.name) {
+                            TabDemoScreen().Screen()
+                        }
+                        composable(Screen.TextFieldDemo.name) {
+                            TextFieldDemoScreen().Screen()
+                        }
+                        composable(Screen.ValueSelectorDemo.name) {
+                            ValueSelectorDemoScreen().Screen()
+                        }
                     }
                 }
             }
@@ -94,6 +105,7 @@ class MainActivity : ComponentActivity() {
             DemoLinkButton(naviController, Screen.AsyncScrollDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.TabDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.TextFieldDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.ValueSelectorDemo, onCurrentScreenChanged)
         }
     }
 

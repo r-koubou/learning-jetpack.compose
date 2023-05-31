@@ -1,4 +1,4 @@
-package compose.demos.asyncscroll
+package com.example.learning.compose.demos.asyncscroll
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import compose.NaviScreen
+import com.example.learning.compose.NaviScreen
 
 class AsyncScrollDemoScreen : NaviScreen {
 

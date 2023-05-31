@@ -1,4 +1,4 @@
-package compose.demos.tab
+package com.example.learning.compose.demos.tab
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,7 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import compose.NaviScreen
+import com.example.learning.compose.NaviScreen
 
 class TabDemoScreen : NaviScreen {
 

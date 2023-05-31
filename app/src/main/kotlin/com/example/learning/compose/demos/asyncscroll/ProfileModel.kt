@@ -1,4 +1,4 @@
-package compose.demos.asyncscroll
+package com.example.learning.compose.demos.asyncscroll
 
 internal data class ProfileModel(
     val name: String = "No Name",

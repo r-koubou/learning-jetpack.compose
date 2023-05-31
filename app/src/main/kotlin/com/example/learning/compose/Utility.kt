@@ -1,4 +1,4 @@
-package compose
+package com.example.learning.compose
 
 
 // リテラルで書いた場合、数値のみでは単位が分かりにくいので、拡張関数を定義
