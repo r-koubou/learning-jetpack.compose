@@ -18,6 +18,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Slider
 import androidx.compose.material.Switch
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.Composable
@@ -43,6 +44,7 @@ class ValueSelectorDemoScreen : NaviScreen {
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
+
             SwitchDemo()
             SliderDemo()
             DropdownMenuDemo()
@@ -129,7 +131,8 @@ class ValueSelectorDemoScreen : NaviScreen {
                         .align(Alignment.CenterVertically)
                 )
                 IconButton(
-                    modifier = Modifier.align(Alignment.CenterVertically)
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
                         .weight(70f.percent),
                     onClick = {
                         expanded = true

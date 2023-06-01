@@ -57,10 +57,14 @@ class TextFieldDemoScreen : NaviScreen
             TextField(
                 value = textFieldText,
                 onValueChange = {
-                    textFieldText = it
+                    // 改行自体は入力できてしまうので判定
+                    if(!it.contains("\n")) {
+                        textFieldText = it
+                    }
                 },
+                maxLines = 1,
                 singleLine = true,
-                label = { Text("text...") }
+                label = { Text("text...") },
             )
 
             Text("Output")
