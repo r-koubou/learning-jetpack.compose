@@ -6,4 +6,5 @@ enum class Screen {
     TabDemo,
     TextFieldDemo,
     ValueSelectorDemo,
+    ProgressDemo,
 }

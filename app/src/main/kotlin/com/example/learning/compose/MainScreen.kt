@@ -25,6 +25,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.learning.compose.demos.asyncscroll.AsyncScrollDemoScreen
+import com.example.learning.compose.demos.progress.ProgressDemoScreen
 import com.example.learning.compose.demos.tab.TabDemoScreen
 import com.example.learning.compose.demos.textfield.TextFieldDemoScreen
 import com.example.learning.compose.demos.valueselector.ValueSelectorDemoScreen
@@ -78,6 +79,9 @@ class MainScreen : NaviScreen
                         composable(Screen.ValueSelectorDemo.name) {
                             ValueSelectorDemoScreen().Screen()
                         }
+                        composable(Screen.ProgressDemo.name) {
+                            ProgressDemoScreen().Screen()
+                        }
                     }
                 }
             }
@@ -113,6 +117,7 @@ class MainScreen : NaviScreen
             DemoLinkButton(naviController, Screen.TabDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.TextFieldDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.ValueSelectorDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.ProgressDemo, onCurrentScreenChanged)
         }
     }
 
