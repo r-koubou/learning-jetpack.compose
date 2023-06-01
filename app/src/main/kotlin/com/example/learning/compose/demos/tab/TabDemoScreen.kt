@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.learning.compose.NaviScreen
 
 class TabDemoScreen : NaviScreen {
@@ -75,4 +76,10 @@ class TabDemoScreen : NaviScreen {
             Text(text = "Tab $index")
         }
     }
+}
+
+@Preview(name = "TabDemoScreen", showBackground = true, showSystemUi = true)
+@Composable
+private fun Preview_TabDemoScreen() {
+    TabDemoScreen().Screen()
 }

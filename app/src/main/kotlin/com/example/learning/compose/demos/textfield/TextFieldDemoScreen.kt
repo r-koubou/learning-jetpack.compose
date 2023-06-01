@@ -84,7 +84,7 @@ class TextFieldDemoScreen : NaviScreen
     }
 }
 
-@Preview(name = "TextFieldDemoScreen")
+@Preview(name = "TextFieldDemoScreen", showBackground = true, showSystemUi = true)
 @Composable
 private fun Preview_TextFieldDemoScreen() {
     TextFieldDemoScreen().Screen()

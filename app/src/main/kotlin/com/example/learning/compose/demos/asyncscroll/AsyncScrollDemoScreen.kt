@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.learning.compose.NaviScreen
 
 class AsyncScrollDemoScreen : NaviScreen {
@@ -64,4 +65,10 @@ class AsyncScrollDemoScreen : NaviScreen {
             }
         }
     }
+}
+
+@Preview(name = "TabDemoScreen", showBackground = true, showSystemUi = true)
+@Composable
+private fun Preview_AsyncScrollDemoScreen() {
+    AsyncScrollDemoScreen().Screen()
 }
