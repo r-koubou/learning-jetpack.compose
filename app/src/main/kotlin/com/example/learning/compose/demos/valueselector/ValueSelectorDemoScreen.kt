@@ -168,7 +168,7 @@ class ValueSelectorDemoScreen : NaviScreen {
 }
 
 
-@Preview(name = "ValueSelectorDemoScreen")
+@Preview(name = "ValueSelectorDemoScreen", showBackground = true, showSystemUi = true)
 @Composable
 private fun Preview_ValueSelectorDemoScreen() {
     ValueSelectorDemoScreen().Screen()
