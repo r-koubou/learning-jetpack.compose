@@ -3,4 +3,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_async_scroll_demo">AsyncScrollDemoActivity</string>
+    <string name="hello">Hello</string>
 </resources>

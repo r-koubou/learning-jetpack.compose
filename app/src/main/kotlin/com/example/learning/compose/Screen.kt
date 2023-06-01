@@ -7,4 +7,5 @@ enum class Screen {
     TextFieldDemo,
     ValueSelectorDemo,
     ProgressDemo,
+    LocalizationDemo,
 }

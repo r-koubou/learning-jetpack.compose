@@ -4,6 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -25,6 +28,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.learning.compose.demos.asyncscroll.AsyncScrollDemoScreen
+import com.example.learning.compose.demos.localization.LocalizationDemoScreen
 import com.example.learning.compose.demos.progress.ProgressDemoScreen
 import com.example.learning.compose.demos.tab.TabDemoScreen
 import com.example.learning.compose.demos.textfield.TextFieldDemoScreen
@@ -50,7 +54,10 @@ class MainScreen : NaviScreen
                     .fillMaxSize()
                     .background(MaterialTheme.colors.background)
             ) {
-                Column {
+                Column(
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                ){
 
                     if (currentScreen != Screen.MainMenu) {
                         NavigationTitleBar(title = currentScreen.name) {
@@ -81,6 +88,9 @@ class MainScreen : NaviScreen
                         }
                         composable(Screen.ProgressDemo.name) {
                             ProgressDemoScreen().Screen()
+                        }
+                        composable(Screen.LocalizationDemo.name) {
+                            LocalizationDemoScreen().Screen()
                         }
                     }
                 }
@@ -118,6 +128,7 @@ class MainScreen : NaviScreen
             DemoLinkButton(naviController, Screen.TextFieldDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.ValueSelectorDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.ProgressDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.LocalizationDemo, onCurrentScreenChanged)
         }
     }
 
