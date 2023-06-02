@@ -54,10 +54,7 @@ class MainScreen : NaviScreen
                     .fillMaxSize()
                     .background(MaterialTheme.colors.background)
             ) {
-                Column(
-                    modifier = Modifier
-                        .verticalScroll(rememberScrollState())
-                ){
+                Column {
 
                     if (currentScreen != Screen.MainMenu) {
                         NavigationTitleBar(title = currentScreen.name) {
