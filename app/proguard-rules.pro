@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Retrofit
+-dontnote retrofit2.Platform
+-keepattributes Signature
+-keepattributes Exceptions

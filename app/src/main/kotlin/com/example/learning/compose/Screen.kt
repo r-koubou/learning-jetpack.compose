@@ -8,4 +8,5 @@ enum class Screen {
     ValueSelectorDemo,
     ProgressDemo,
     LocalizationDemo,
+    SimpleWebApiDemo,
 }
