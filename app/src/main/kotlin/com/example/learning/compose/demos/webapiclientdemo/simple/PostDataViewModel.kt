@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.learning.compose.demos.webapiclientdemo.model.PostData
 import com.example.learning.compose.demos.webapiclientdemo.model.PostDataEntity
-import com.example.learning.compose.demos.webapiclientdemo.webapiclient.WebApiService
+import com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient.WebApiService
 import kotlinx.coroutines.launch
 
 class PostDataViewModel(
