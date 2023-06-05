@@ -9,4 +9,5 @@ enum class Screen {
     ProgressDemo,
     LocalizationDemo,
     SimpleWebApiDemo,
+    AdvancedWebApiDemo,
 }

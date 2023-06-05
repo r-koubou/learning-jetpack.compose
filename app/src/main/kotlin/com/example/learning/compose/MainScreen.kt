@@ -30,6 +30,7 @@ import com.example.learning.compose.demos.progress.ProgressDemoScreen
 import com.example.learning.compose.demos.tab.TabDemoScreen
 import com.example.learning.compose.demos.textfield.TextFieldDemoScreen
 import com.example.learning.compose.demos.valueselector.ValueSelectorDemoScreen
+import com.example.learning.compose.demos.webapiclientdemo.advanced.AdvancedWebApiDemoScreen
 import com.example.learning.compose.demos.webapiclientdemo.simple.SimpleWebApiDemoScreen
 import com.example.learning.compose.ui.theme.LearningComposeTheme
 
@@ -90,6 +91,9 @@ class MainScreen : NaviScreen
                         composable(Screen.SimpleWebApiDemo.name) {
                             SimpleWebApiDemoScreen().Screen()
                         }
+                        composable(Screen.AdvancedWebApiDemo.name) {
+                            AdvancedWebApiDemoScreen().Screen()
+                        }
                     }
                 }
             }
@@ -128,6 +132,7 @@ class MainScreen : NaviScreen
             DemoLinkButton(naviController, Screen.ProgressDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.LocalizationDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.SimpleWebApiDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.AdvancedWebApiDemo, onCurrentScreenChanged)
         }
     }
 
