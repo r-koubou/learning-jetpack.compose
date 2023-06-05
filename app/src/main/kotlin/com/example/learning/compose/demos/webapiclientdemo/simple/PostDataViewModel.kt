@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.learning.compose.demos.webapiclientdemo.model.PostData
 import com.example.learning.compose.demos.webapiclientdemo.model.PostDataEntity
-import com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient.WebApiService
+import com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient.DefaultWebApiService
 import kotlinx.coroutines.launch
 
 class PostDataViewModel(
-    private val webApiClient: WebApiService,
+    private val webApiClient: DefaultWebApiService,
     private val model: PostDataEntity,
 ) : ViewModel(),
     MutableList<PostData> by model

@@ -18,7 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.example.learning.compose.NaviScreen
 import com.example.learning.compose.demos.webapiclientdemo.model.PostDataEntity
-import com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient.WebApiService
+import com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient.DefaultWebApiService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -29,7 +29,7 @@ class SimpleWebApiDemoScreen : NaviScreen
     @Composable
     override fun Screen()
     {
-        val service = WebApiService()
+        val service = DefaultWebApiService("https://jsonplaceholder.typicode.com/")
 
         val viewModel = PostDataViewModel(
             webApiClient = service,
