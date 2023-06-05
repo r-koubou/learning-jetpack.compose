@@ -34,7 +34,9 @@ class AsyncScrollDemoScreen : NaviScreen {
                             thumbnailPath = "https://picsum.photos/300")
                     }
                 }
-                ClearButton()
+                ClearButton() {
+                    profiles.clear()
+                }
             }
             ProfileListComposable(profiles)
         }
