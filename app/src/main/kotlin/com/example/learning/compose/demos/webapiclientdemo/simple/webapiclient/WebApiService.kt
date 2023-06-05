@@ -1,4 +1,4 @@
-package com.example.learning.compose.demos.webapiclientdemo.webapiclient
+package com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient
 
 import com.example.learning.compose.demos.webapiclientdemo.model.PostData
 import com.squareup.moshi.Moshi

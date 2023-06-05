@@ -18,7 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.example.learning.compose.NaviScreen
 import com.example.learning.compose.demos.webapiclientdemo.model.PostDataEntity
-import com.example.learning.compose.demos.webapiclientdemo.webapiclient.WebApiService
+import com.example.learning.compose.demos.webapiclientdemo.simple.webapiclient.WebApiService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
