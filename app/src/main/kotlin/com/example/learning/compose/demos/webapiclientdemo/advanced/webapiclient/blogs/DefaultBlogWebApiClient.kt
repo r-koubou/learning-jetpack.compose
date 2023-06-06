@@ -1,5 +1,9 @@
-package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient
+package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.blogs
 
+import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons.ApiResponseWithBody
+import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons.GenericJsonResponseParser
+import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons.WebApiHttpClient
+import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons.WebApiRequest
 import com.example.learning.compose.demos.webapiclientdemo.model.PostData
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi

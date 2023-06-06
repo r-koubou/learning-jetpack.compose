@@ -1,4 +1,4 @@
-package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient
+package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

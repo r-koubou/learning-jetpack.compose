@@ -17,7 +17,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.example.learning.compose.NaviScreen
-import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.DefaultBlogWebApiClient
+import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.blogs.DefaultBlogWebApiClient
 import com.example.learning.compose.demos.webapiclientdemo.model.PostDataEntity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient
+package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons
 
 class WebApiRequest(
     val url: String,

@@ -1,11 +1,8 @@
-package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient
+package com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.commons
 
 import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
 import java.io.InputStream
-import java.lang.reflect.ParameterizedType
 import java.net.HttpURLConnection
-import kotlin.reflect.KClass
 
 class GenericJsonResponseParser<TResponse:Any>(
     private val jsonAdapter: JsonAdapter<TResponse>

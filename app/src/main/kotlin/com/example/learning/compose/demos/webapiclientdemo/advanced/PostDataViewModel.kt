@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.BlogWebApiClient
+import com.example.learning.compose.demos.webapiclientdemo.advanced.webapiclient.blogs.BlogWebApiClient
 import com.example.learning.compose.demos.webapiclientdemo.model.PostData
 import com.example.learning.compose.demos.webapiclientdemo.model.PostDataEntity
 import kotlinx.coroutines.launch
