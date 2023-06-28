@@ -10,4 +10,5 @@ enum class Screen {
     LocalizationDemo,
     SimpleWebApiDemo,
     AdvancedWebApiDemo,
+    ScaffoldDemo,
 }

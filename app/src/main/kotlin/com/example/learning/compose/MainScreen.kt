@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.learning.compose.demos.asyncscroll.AsyncScrollDemoScreen
 import com.example.learning.compose.demos.localization.LocalizationDemoScreen
 import com.example.learning.compose.demos.progress.ProgressDemoScreen
+import com.example.learning.compose.demos.scaffold.ScaffoldDemoScreen
 import com.example.learning.compose.demos.tab.TabDemoScreen
 import com.example.learning.compose.demos.textfield.TextFieldDemoScreen
 import com.example.learning.compose.demos.valueselector.ValueSelectorDemoScreen
@@ -94,6 +95,9 @@ class MainScreen : NaviScreen
                         composable(Screen.AdvancedWebApiDemo.name) {
                             AdvancedWebApiDemoScreen().Screen()
                         }
+                        composable(Screen.ScaffoldDemo.name) {
+                            ScaffoldDemoScreen().Screen()
+                        }
                     }
                 }
             }
@@ -133,6 +137,7 @@ class MainScreen : NaviScreen
             DemoLinkButton(naviController, Screen.LocalizationDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.SimpleWebApiDemo, onCurrentScreenChanged)
             DemoLinkButton(naviController, Screen.AdvancedWebApiDemo, onCurrentScreenChanged)
+            DemoLinkButton(naviController, Screen.ScaffoldDemo, onCurrentScreenChanged)
         }
     }
 
